@@ -1,11 +1,14 @@
 ﻿#include <iostream>
 #include<math.h>
-#include <iomanip>
 #include <bitset>
 
 using namespace std;
 
-
+void beauty(int N)
+{
+    cout.width(N);
+    cout.fill(' ');
+}
 
 void Task_A()
 {
@@ -14,18 +17,28 @@ void Task_A()
     {
         double y;
 
+        if (-0.1 < x and x < 0.1)
+        {
+            x = 0;
+        }
         if (x < 0)
         {
             y = 2 * pow(x, 3) * cos(pow(x, 2) + 1);
         }
         else
         {
-            y = 2 * exp(pow(x, 1 / 2));
+            y = 2 * exp(pow(x, 0.5));
         }
-
-        cout << x << "\t" << y << setprecision(4) << cout.width(5)  << endl;
+        // cout.width(5);
+        // cout.fill(' ');
+        beauty(5);
+        cout << x;
+        beauty(10);
+        // cout.width(10);
+        // cout.fill(' ');
+        cout.precision(3);
+        cout << y << endl;
     }
-    cout << (0.4 - 0.2)-0.2 << endl;
 }
 
 
@@ -41,11 +54,20 @@ void Task_B()
         cin >> C[i];
         N[i] = C[i] - '0';
     }
-    cout << "Символ\tВ восьмеричной\tПосле изменения\tИтоговой символ\n";
+    beauty(20);
+    cout << "Символ\t";
+    beauty(14);
+    cout << "В восьмеричной\t";
+    beauty(14);
+    cout << "После изменения\t";
+    beauty(14);
+    cout << "Итоговой символ\n";
     for (int i = 0; i < 8; i++)
-    {   
-        cout << C[i] <<"\t";
+    {
+        beauty(5);
+        cout << C[i] << "\t";
         bitset<8> num(C[i]);
+        beauty(14);
         cout << num << "\t";
         if (isupper(C[i]))
         {
@@ -55,8 +77,10 @@ void Task_B()
         {
             num[0] = true;
         }
+        beauty(14);
         cout << num << "\t";
-        cout << char(num.to_ulong())<< endl;
+        beauty(14);
+        cout << char(num.to_ulong()) << endl;
     }
 
 }
